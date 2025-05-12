@@ -37,3 +37,37 @@ class LinkedList:
             count += 1
             itr = itr.next
         return count
+
+
+    def insert_at_index(self, index, data):
+        if index < 0 or index >self.get_lenght():
+            raise Exception("Invalid index")
+
+        if index == 0:
+            self.insert_at_start(data)
+            return
+
+        count = 0
+        itr = self.head
+        while itr:
+            if count == index - 1:
+                node = Node(data, itr.next)
+                itr.next = node
+                break
+            itr = itr.next
+            count += 1
+    def delete_at_index(self, index):
+        if index< 0 or index>= self.get_lenght():
+            raise Exception("Index out of range")
+        if index == 0:
+            self.head = self.head.next
+            return
+        count = 0
+        itr = self.head
+        while itr:
+            if count == index - 1:
+                itr.next = itr.next.next
+                break
+            itr = itr.next
+            count += 1
+
