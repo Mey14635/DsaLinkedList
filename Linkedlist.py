@@ -2,6 +2,8 @@ class Node:
     def __init__(self, data=None, next=None):
         self.data = data
         self.next = next
+
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -70,4 +72,25 @@ class LinkedList:
                 break
             itr = itr.next
             count += 1
+
+    def search(self, value):
+            itr = self.head
+            index = 0
+            while itr:
+                if itr.data == value:
+                    return index
+                itr = itr.next
+                index += 1
+            return -1
+
+if __name__ == '__main__':
+        ll = LinkedList()
+        ll.insert_at_start(5)
+        ll.insert_at_start(69)
+        ll.insert_at_end(10)
+        ll.insert_at_end(156)
+        ll.insert_at_index(0, 23)
+        ll.display()
+        print("Found at index:", ll.search(5))
+
 
